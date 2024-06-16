@@ -42,3 +42,12 @@ steps:
     zipAfterPublish: True
     verbosityRestore: Detailed
     verbosityPack: Detailed
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()
+    
+
+
